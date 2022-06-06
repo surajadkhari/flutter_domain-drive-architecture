@@ -23,9 +23,11 @@ class Homepage extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      ...r.map((e) => ListTile(
-                            title: Text(e.title),
-                            subtitle: Text(e.body),
+                      ...r.map((e) => Card(
+                            child: ListTile(
+                              title: Text(e.title),
+                              subtitle: Text(e.body),
+                            ),
                           ))
                     ],
                   ),
