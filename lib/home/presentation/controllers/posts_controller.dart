@@ -6,5 +6,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final getPostProvider =
     FutureProvider<Either<AppError, List<PostModel>>>((ref) async {
-  return PostrepositoryImp().getPost();
+  return ref.watch(postrepositoryProvider).getPost();
 });
