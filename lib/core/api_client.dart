@@ -1,5 +1,11 @@
 import 'package:dio/dio.dart';
+
 import 'package:flutter_architecture/core/api_constant.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final apiClientProvider = Provider<ApiClient>((ref) {
+  return ApiClient();
+});
 
 class ApiClient {
   Future request(
