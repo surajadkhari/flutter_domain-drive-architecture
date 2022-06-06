@@ -10,6 +10,7 @@ class PostdatasourceImp extends Postdatasource {
   @override
   Future<List<PostModel>> getPost() async {
     List result = await ApiClient().request(path: ApiConstant.post);
+
     return result.map((e) => PostModel.fromJson(e)).toList();
   }
 }

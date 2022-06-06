@@ -5,7 +5,7 @@ class ApiClient {
   Future request(
       {required String path,
       String type = "get",
-      Map<String, dynamic> data}) async {
+      Map<String, dynamic>? data}) async {
     Dio dio = Dio(
       BaseOptions(baseUrl: ApiConstant.baseUrl),
     );
@@ -13,7 +13,8 @@ class ApiClient {
       final response = type == 'get'
           ? await dio.get(path)
           : await dio.post(path, data: data);
-      response.data;
+
+      return response.data;
     } on DioError catch (e) {
       throw Exception(e);
     }

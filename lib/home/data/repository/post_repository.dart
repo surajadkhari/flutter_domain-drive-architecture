@@ -12,7 +12,7 @@ class PostrepositoryImp extends Postrepository {
   @override
   Future<Either<AppError, List<PostModel>>> getPost() async {
     try {
-      final result = await PostdatasourceImp().getPost();
+      var result = await PostdatasourceImp().getPost();
       return Right(result);
     } on DioError catch (e) {
       return Left(AppError(message: e.message));
