@@ -5,7 +5,7 @@ class ApiClient {
   Future request(
       {required String path,
       String type = "get",
-      required Map<String, dynamic> data}) async {
+      Map<String, dynamic> data}) async {
     Dio dio = Dio(
       BaseOptions(baseUrl: ApiConstant.baseUrl),
     );
