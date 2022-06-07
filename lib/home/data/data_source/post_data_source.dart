@@ -1,6 +1,6 @@
 import 'package:flutter_architecture/core/api_client.dart';
 import 'package:flutter_architecture/core/api_constant.dart';
-import 'package:flutter_architecture/home/data/data_model/detail_post_model.dart';
+import 'package:flutter_architecture/home/data/data_model/post_detail_model.dart';
 import 'package:flutter_architecture/home/data/data_model/post_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,11 +10,12 @@ final postdatasourceProvider = Provider<Postdatasource>((ref) {
 
 abstract class Postdatasource {
   Future<List<PostModel>> getPost();
-  Future<PostDetail> getPostDetail(int id);
+  Future<PostDetailModel> getPostDetail(int id);
 }
 
 class PostdatasourceImp extends Postdatasource {
   final ApiClient _apiClient;
+
   PostdatasourceImp(this._apiClient);
   @override
   Future<List<PostModel>> getPost() async {
@@ -23,8 +24,8 @@ class PostdatasourceImp extends Postdatasource {
   }
 
   @override
-  Future<PostDetail> getPostDetail(int id) async {
-    final result = await _apiClient.request(path: '${ApiConstant.post} + $id');
-    return PostDetail.fromJson(result);
+  Future<PostDetailModel> getPostDetail(int id) async {
+    final result = await _apiClient.request(path: '${ApiConstant.post}+$id');
+    return PostDetailModel.fromJson(result);
   }
 }
