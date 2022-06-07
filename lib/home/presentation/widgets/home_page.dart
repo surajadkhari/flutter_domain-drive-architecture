@@ -10,7 +10,7 @@ class Homepage extends ConsumerWidget {
     final data = ref.watch(postNotifierProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ftech API with Architeture"),
+        title: const Text("Fetch API with Architeture"),
       ),
       body: RefreshIndicator(
         onRefresh: (() async {
