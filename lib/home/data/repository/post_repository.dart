@@ -7,12 +7,12 @@ import 'package:flutter_architecture/home/data/data_source/post_data_source.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final postrepositoryProvider = Provider<Postrepository>((ref) {
-  return PostrepositoryImp(ref.watch(PostdatasourceProvider));
+  return PostrepositoryImp(ref.watch(postdatasourceProvider));
 });
 
 abstract class Postrepository {
   Future<Either<AppError, List<PostModel>>> getPost();
-  Future<Either<AppError, PostDetail>> getPostDetail(String id);
+  Future<Either<AppError, PostDetail>> getPostDetail(int id);
 }
 
 class PostrepositoryImp extends Postrepository {
@@ -29,7 +29,7 @@ class PostrepositoryImp extends Postrepository {
   }
 
   @override
-  Future<Either<AppError, PostDetail>> getPostDetail(String id) async {
+  Future<Either<AppError, PostDetail>> getPostDetail(int id) async {
     try {
       var result = await _postdatasource.getPostDetail(id);
       return Right(result);

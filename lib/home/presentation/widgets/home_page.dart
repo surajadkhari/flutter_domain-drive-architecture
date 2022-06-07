@@ -21,10 +21,13 @@ class Homepage extends ConsumerWidget {
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    ...result.map((e) => Card(
-                          child: ListTile(
-                            title: Text(e.title),
-                            subtitle: Text(e.body),
+                    ...result.map((e) => InkWell(
+                          onTap: (() {}),
+                          child: Card(
+                            child: ListTile(
+                              title: Text(e.title),
+                              subtitle: Text(e.body),
+                            ),
                           ),
                         ))
                   ],
