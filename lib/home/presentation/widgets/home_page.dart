@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_architecture/home/presentation/controllers/posts_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'post_detail_page.dart';
+
 class Homepage extends ConsumerWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -22,7 +24,14 @@ class Homepage extends ConsumerWidget {
                 child: Column(
                   children: [
                     ...result.map((e) => InkWell(
-                          onTap: (() {}),
+                          onTap: (() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => PostDetauil(
+                                          id: e.id,
+                                        ))));
+                          }),
                           child: Card(
                             child: ListTile(
                               title: Text(e.title),

@@ -25,7 +25,7 @@ class PostdatasourceImp extends Postdatasource {
 
   @override
   Future<PostDetailModel> getPostDetail(int id) async {
-    final result = await _apiClient.request(path: '${ApiConstant.post}+$id');
+    final result = await _apiClient.request(path: '${ApiConstant.post}/$id');
     return PostDetailModel.fromJson(result);
   }
 }

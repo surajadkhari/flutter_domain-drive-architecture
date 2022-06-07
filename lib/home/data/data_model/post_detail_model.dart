@@ -14,7 +14,7 @@ class PostDetailModel {
     return PostDetailModel(
         userId: json["userId"],
         id: json["id"],
-        titile: json["titile"],
+        titile: json["title"],
         body: json["body"]);
   }
 }

@@ -11,8 +11,8 @@ class PostDetailNotifier extends StateNotifier<AsyncValue<PostDetailModel>> {
   final int id;
   fetch() async {
     final result = await _postrepository.getPostDetail(id);
-    result.fold(
-        (l) => state = AsyncValue.error(l.message), (r) => AsyncValue.data(r));
+    result.fold((l) => state = AsyncValue.error(l.message),
+        (r) => state = AsyncValue.data(r));
   }
 }
 

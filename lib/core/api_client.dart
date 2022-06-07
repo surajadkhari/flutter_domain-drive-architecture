@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:flutter_architecture/core/api_constant.dart';
+import 'package:flutter_architecture/core/exception.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final apiClientProvider = Provider<ApiClient>((ref) {
@@ -22,7 +23,7 @@ class ApiClient {
 
       return response.data;
     } on DioError catch (e) {
-      throw Exception(e);
+      throw DioException.fromDioError(e);
     }
   }
 }

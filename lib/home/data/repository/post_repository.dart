@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_architecture/core/error.dart';
+import 'package:flutter_architecture/core/exception.dart';
 import 'package:flutter_architecture/home/data/data_model/post_detail_model.dart';
 import 'package:flutter_architecture/home/data/data_model/post_model.dart';
 import 'package:flutter_architecture/home/data/data_source/post_data_source.dart';
@@ -23,8 +24,8 @@ class PostrepositoryImp extends Postrepository {
     try {
       var result = await _postdatasource.getPost();
       return Right(result);
-    } on DioError catch (e) {
-      return Left(AppError(message: e.message));
+    } on DioException catch (e) {
+      return Left(AppError(message: e.message!));
     }
   }
 
